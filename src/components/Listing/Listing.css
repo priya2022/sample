@@ -1,0 +1,50 @@
+
+.myListingcontainer{
+
+    width:50%;
+    float:left;
+    margin-right:1%;
+    
+}
+
+.text{
+    display: flex;
+    justify-content:space-between
+}
+
+.bi-arrow-right-short{
+ 
+    background-color:gold;
+    border-radius:100%;
+    border: none !important;;
+    font-size:25px;
+    
+
+}
+
+.myCard{  
+    
+    width:90%;
+    margin:5%;
+    height:250px !important;
+    
+}
+
+.cardBody{
+    top:0;
+    position:absolute;
+    right:0;
+    float:right !important;
+    width: 70%;
+    margin-left:auto;
+    
+    
+}
+.cardText{
+    font-size:20px;
+}
+.cardimg{
+    width:30%;
+    height:100%;
+
+}

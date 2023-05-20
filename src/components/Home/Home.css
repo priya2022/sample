@@ -1,0 +1,32 @@
+
+.mycontainer{
+   width:15%;
+   height:100vh;
+    padding:25px;
+    padding-top:15%;
+    background-color:#4E176C;
+    color:white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 40px;
+    float:left;
+}
+
+/* .mycontainer .myColor:hover{
+    color:#F8C000;
+ 
+}
+.mycontainer span:hover{
+    color:#F8C000;
+ 
+} */
+.myh:hover,
+.myh:hover + .myh{
+    color:#F8C000;
+}
+
+
+
+

@@ -1,0 +1,22 @@
+.new{
+    
+    padding:20px;
+    margin-left:10%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 5px 39px;
+  
+
+}
+.myMon{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    gap:10px;
+}
+
+.monthBtn{ 
+    color: black !important;
+    padding:5px 40px !important;
+}

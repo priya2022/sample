@@ -1,0 +1,48 @@
+.myCalendarcontainer {
+   display:grid;
+   grid-template-columns: repeat(7,minmax(75px,75px));
+   grid-template-rows:repeat(5, minmax(30px,50px));   
+   font-weight: 600;
+  }
+  .table ul{
+    list-style: none;
+    display:grid;
+    grid-template-columns: repeat(7,minmax(75px,75px)); 
+    padding-left:0
+    
+  }
+  .table ul li{
+   font-weight: 600;
+      
+  }
+  .myCalCont{
+    margin-top:22px;
+    color:pink;
+    /* float:right; */
+    
+  }
+  .highlight{
+    background-color: blue !important;
+    border-radius:100%;
+    color:white;
+    width:50%;
+    height:60%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:20%;
+    font-size:19px;
+
+  }
+  
+  .monthdisplay{
+    display:flex;
+    justify-content:space-between;
+  }
+  .left,.right{
+    font-size:1.5rem;
+    cursor:pointer;
+    margin-left:-20%;
+    
+  }
+  
