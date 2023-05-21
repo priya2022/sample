@@ -4,17 +4,20 @@ import { useEffect } from 'react';
 import './myCalendar.css'
 import { MonthContext } from '../Months/Month';
 import { useContext } from 'react';
-// import { useState } from 'react';
-
+import { useState } from 'react';
 
 
 const Calendar=({items})=> {
-  
-  const mydata = useContext(MonthContext)
-  // const [next,setNext]= useState(mydata)
- 
 
   const uniqueMonth =[...new Set(items.map(item=>item.month))]
+  
+  const mydata = useContext(MonthContext)
+  const [next,setNext]= useState([])
+  const [prev, setPrev]=useState([])
+  const [current, setCurrent]= useState(uniqueMonth)
+ 
+
+  
   var days =(items.map(item=> {return item.day}))
   const [data,setData]= React.useState([])
 
@@ -28,35 +31,55 @@ const Calendar=({items})=> {
   }
 
   const filteredData= mydata.filter(item=>item.month === uniqueMonth.toString() )
-  // const position = filteredData.map(item=>item.id )
+  
  
 
   const handleLeft=()=>{
+    
    
+   mydata.map((item,index)=>{ 
+    
+      if(item.month === current.toString())  
+      {
+        
+        const myPrev = mydata[index-1].month
+        setCurrent(myPrev)
+        
+      }
+
+   })
 
   }         
   const handleRight=()=>{
-  //  const nextMonth =next.map(item=>item.month+1)
-  //  console.log("next",nextMonth)
-  //  setNext(nextMonth)
+    mydata.map((item,index)=>{ 
+    
+      if(item.month === current.toString())  
+      {
+        
+        const myPrev = mydata[index+1].month
+        setCurrent(myPrev)
+        
+      }
+    
+   
+   })
   }
 
   return (
+    
     <>
   
     <div className="myCalCont">
     <div  className="table">
   
         <div className='monthdisplay'>
-        <h3>{uniqueMonth }</h3>
-
+        {/* <h3>{prev }</h3> */}
+        <h4>{current}</h4>
           <span>
-        <i class="bi bi-arrow-left-short left" onClick ={handleLeft}></i>
-        <i class="bi bi-arrow-right-short right" onClick={handleRight}></i>
+        <i className="bi bi-arrow-left-short left" onClick ={handleLeft}></i>
+        <i className="bi bi-arrow-right-short right" onClick={handleRight}></i>
         </span>
-        
-       
-        
+
         </div>
 
         <ul>

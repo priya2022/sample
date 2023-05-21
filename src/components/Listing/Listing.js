@@ -22,13 +22,11 @@ const Listing = ({month,mynewMonth}) => {
      const myCurrentMonth= Object.values({mynewMonth})[0]
       const myMonth= Object.values({month})[0]
       filteredData= mydata.filter((item)=> item.month === (myMonth||myCurrentMonth) )
-      console.log("filteredData",filteredData)
+      
 
        return (
        <>
-       <div className="myListingcontainer">
-       
-         
+       <div className="myListingcontainer">      
         {
         
           filteredData.map((item)=>{
