@@ -41,28 +41,39 @@ const Calendar=({items})=> {
     
       if(item.month === current.toString())  
       {
-        
-        const myPrev = mydata[index-1].month
+        let prevIndex= index-1
+        if(prevIndex < 0)
+        {
+          prevIndex = mydata.length-1
+        }
+        const myPrev = mydata[prevIndex].month
         setCurrent(myPrev)
-        
+        console.log("myPrev",myPrev)
       }
 
    })
 
   }         
   const handleRight=()=>{
-    mydata.map((item,index)=>{ 
     
+    
+    mydata.map((item,index)=>{ 
+      
       if(item.month === current.toString())  
       {
-        
-        const myPrev = mydata[index+1].month
-        setCurrent(myPrev)
-        
+        let nextIndex =  index+1;
+        if(nextIndex >= mydata.length) 
+        {
+          nextIndex=0
+        }
+          const myNext = mydata[nextIndex].month
+          setCurrent(myNext)
+          console.log("myPrev",myNext)
+          
+        }
       }
-    
-   
-   })
+   )
+  
   }
 
   return (
@@ -73,7 +84,7 @@ const Calendar=({items})=> {
     <div  className="table">
   
         <div className='monthdisplay'>
-        {/* <h3>{prev }</h3> */}
+        
         <h4>{current}</h4>
           <span>
         <i className="bi bi-arrow-left-short left" onClick ={handleLeft}></i>
