@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 import './myCalendar.css'
 import { MonthContext } from '../Months/Month';
 import { useContext } from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 
 const Calendar=({items})=> {
   
   const mydata = useContext(MonthContext)
-  const [next,setNext]= useState(mydata)
+  // const [next,setNext]= useState(mydata)
  
 
   const uniqueMonth =[...new Set(items.map(item=>item.month))]
@@ -28,7 +28,7 @@ const Calendar=({items})=> {
   }
 
   const filteredData= mydata.filter(item=>item.month === uniqueMonth.toString() )
-  const position = filteredData.map(item=>item.id )
+  // const position = filteredData.map(item=>item.id )
  
 
   const handleLeft=()=>{
