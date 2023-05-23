@@ -16,15 +16,11 @@ const Month = () => {
   const [data,setData]=useState([])
 
 
-  useEffect(()=>{
-    
+  useEffect(()=>{    
     let d = new Date();
     let current = mynewMonth[d.getMonth()]
     setmyMonth(current)
-
   },[])
-
-    
 
   const callgetApi=async()=>{
    const response = await axios.get("https://646352d67a9eead6fae32f76.mockapi.io/year")
@@ -41,12 +37,9 @@ const Month = () => {
   
   return (
     <MonthContext.Provider value={data}>
-    <div className="new">
-      
+    <div className="new">      
     <div className= "myMon"  gap={2} style={{"marginTop":"3%"}}>
-
     {
-
       data.map((month)=>{
         return(         
           <Button className="monthBtn" variant="outline-warning" onClick={handleChange.bind(this, month)}>{month.month}</Button>
@@ -54,12 +47,9 @@ const Month = () => {
        
       })
     }
-
     </div>
     </div>
-
-<Listing month={month} mynewMonth={mynewMonth}/> 
-
+    <Listing month={month} mynewMonth={mynewMonth}/> 
     </MonthContext.Provider>
   )
 }
