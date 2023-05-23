@@ -8,6 +8,7 @@ import Calendar from '../Calendar/Calendar';
 const Listing = ({month,mynewMonth}) => {
   var filteredData;
     const [mydata, setData] = useState([])
+    const [calData,setCalData]=useState([])
 
     const callgetApi=async()=>{
       const response = await axios.get("https://646352d67a9eead6fae32f76.mockapi.io/months")
@@ -18,22 +19,35 @@ const Listing = ({month,mynewMonth}) => {
        callgetApi()
      },[])
 
-     const handleMonthReceived=(data)=>{
-      console.log("onListing",data)
-      // filteredData= mydata.filter((item)=> item.month === (myMonth||myCurrentMonth||data) )
-     }
-     
+    
      const myCurrentMonth= Object.values({mynewMonth})[0]
-      const myMonth= Object.values({month})[0]
-      filteredData= mydata.filter((item)=> item.month === (myMonth||myCurrentMonth) )
+     const myMonth= Object.values({month})[0]
+     const selectedMonth = myMonth||myCurrentMonth
+     useEffect(()=>{
+      const initialData = mydata.filter((item)=> item.month ===selectedMonth)
+      setCalData(initialData)
+     },[selectedMonth,mydata])
+     
+     const dataReceiver = (data)=>{
       
+      filteredData= mydata.filter((item)=>item.month === data)
+      console.log("filteredData",filteredData)
+      setCalData(filteredData)
+     }
+   
+     
+     
+      filteredData= mydata.filter((item)=> item.month === selectedMonth )
+      
+     
 
        return (
        <>
+       {console.log("listingData",calData)}
        <div className="myListingcontainer">      
         {
         
-          filteredData.map((item)=>{
+          calData.map((item)=>{
             return(
               
               <Card key ={item.id} className="myCard">
@@ -56,7 +70,7 @@ const Listing = ({month,mynewMonth}) => {
           })
         }
         </div>       
-        <Calendar items={filteredData} dataReceiver ={handleMonthReceived} />
+        <Calendar items={filteredData} dataReceiver = {dataReceiver}/>
        </>
     
        )
