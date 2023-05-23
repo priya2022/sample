@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { useState } from 'react';
 
 
-const Calendar=({items})=> {
+const Calendar=({items,dataReceiver})=> {
 
   const uniqueMonth =[...new Set(items.map(item=>item.month))]
   
@@ -30,9 +30,6 @@ const Calendar=({items})=> {
     setData(response.data)
   }
 
-  const filteredData= mydata.filter(item=>item.month === uniqueMonth.toString() )
-  
- 
 
   const handleLeft=()=>{
     
@@ -48,7 +45,8 @@ const Calendar=({items})=> {
         }
         const myPrev = mydata[prevIndex].month
         setCurrent(myPrev)
-        console.log("myPrev",myPrev)
+        
+        
       }
 
    })
@@ -57,7 +55,7 @@ const Calendar=({items})=> {
   const handleRight=()=>{
     
     
-    mydata.map((item,index)=>{ 
+    mydata.map((item,index) => { 
       
       if(item.month === current.toString())  
       {
@@ -68,12 +66,10 @@ const Calendar=({items})=> {
         }
           const myNext = mydata[nextIndex].month
           setCurrent(myNext)
-          console.log("myPrev",myNext)
           
         }
       }
-   )
-  
+   )  
   }
 
   return (
@@ -82,17 +78,13 @@ const Calendar=({items})=> {
   
     <div className="myCalCont">
     <div  className="table">
-  
-        <div className='monthdisplay'>
-        
+        <div className='monthdisplay'>        
         <h4>{current}</h4>
           <span>
         <i className="bi bi-arrow-left-short left" onClick ={handleLeft}></i>
         <i className="bi bi-arrow-right-short right" onClick={handleRight}></i>
         </span>
-
         </div>
-
         <ul>
           <li>Sun</li>
           <li>Mon</li>
@@ -102,12 +94,9 @@ const Calendar=({items})=> {
           <li>Fri</li>
           <li>Sat</li>
         </ul>
-
       <div className="myCalendarcontainer">
-
       {data.map((item,index)=>{
-        return(
-         
+        return(         
           <div key={index} >          
             <div  className={days.includes(item.day)? 'highlight':''}>
             {item.day}
@@ -115,8 +104,7 @@ const Calendar=({items})=> {
           </div>
         )
       })}
-      </div>
-       
+      </div>       
       </div>
       </div>
     </>

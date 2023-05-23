@@ -18,6 +18,10 @@ const Listing = ({month,mynewMonth}) => {
        callgetApi()
      },[])
 
+     const handleMonthReceived=(data)=>{
+      console.log("onListing",data)
+      // filteredData= mydata.filter((item)=> item.month === (myMonth||myCurrentMonth||data) )
+     }
      
      const myCurrentMonth= Object.values({mynewMonth})[0]
       const myMonth= Object.values({month})[0]
@@ -52,7 +56,7 @@ const Listing = ({month,mynewMonth}) => {
           })
         }
         </div>       
-        <Calendar items={filteredData} />
+        <Calendar items={filteredData} dataReceiver ={handleMonthReceived} />
        </>
     
        )
