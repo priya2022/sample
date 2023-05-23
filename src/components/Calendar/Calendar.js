@@ -15,6 +15,7 @@ const Calendar=({items,dataReceiver})=> {
   const [next,setNext]= useState([])
   const [prev, setPrev]=useState([])
 const [current, setCurrent]= useState()
+
  
 useEffect(() => {
  setCurrent(currentMonth)
