@@ -6,9 +6,17 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 5px 39px;
+    overflow-x:scroll;
   
 
 }
+.new::-webkit-scrollbar {
+    display: none;
+}
+.new {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 .myMon{
     display: flex;
     flex-direction: row;

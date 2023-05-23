@@ -43,7 +43,7 @@ const Month = () => {
     <MonthContext.Provider value={data}>
     <div className="new">
       
-    <div className= "myMon" direction="horizontal" gap={2} style={{"marginTop":"3%"}}>
+    <div className= "myMon"  gap={2} style={{"marginTop":"3%"}}>
 
     {
 
