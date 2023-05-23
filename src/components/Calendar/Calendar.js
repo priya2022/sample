@@ -8,14 +8,17 @@ import { useState } from 'react';
 
 
 const Calendar=({items,dataReceiver})=> {
-
+  
   const uniqueMonth =[...new Set(items.map(item=>item.month))]
   const currentMonth = uniqueMonth[0]
   const mydata = useContext(MonthContext)
   const [next,setNext]= useState([])
   const [prev, setPrev]=useState([])
-const [current, setCurrent]= useState(currentMonth)
+const [current, setCurrent]= useState()
  
+useEffect(() => {
+ setCurrent(currentMonth)
+}, [currentMonth])
 
   
   var days =(items.map(item=> {return item.day}))
@@ -72,7 +75,7 @@ const [current, setCurrent]= useState(currentMonth)
   return (
     
     <>
-  
+  {console.log("jfds",currentMonth)}
     <div className="myCalCont">
     <div  className="table"> 
         <div className='monthdisplay'>    
