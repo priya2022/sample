@@ -23,6 +23,7 @@ const Listing = ({month,mynewMonth}) => {
      const myCurrentMonth= Object.values({mynewMonth})[0]
      const myMonth= Object.values({month})[0]
      const selectedMonth = myMonth||myCurrentMonth
+
      useEffect(()=>{
       const initialData = mydata.filter((item)=> item.month ===selectedMonth)
       setCalData(initialData)
@@ -70,7 +71,7 @@ const Listing = ({month,mynewMonth}) => {
           })
         }
         </div>       
-        <Calendar items={filteredData} dataReceiver = {dataReceiver}/>
+        <Calendar items={calData} dataReceiver = {dataReceiver}/>
        </>
     
        )
