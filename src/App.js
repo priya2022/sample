@@ -9,14 +9,9 @@ import './app.css'
 
 const App = () => {
   return (
-    <>
-    
-    <Home />
-    
+    <> 
+    <Home />    
     <Month />
-    
-    
-
     </>
   )
 }

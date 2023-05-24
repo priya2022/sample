@@ -35,12 +35,8 @@ const Listing = ({month,mynewMonth}) => {
       console.log("filteredData",filteredData)
       setCalData(filteredData)
      }
-   
-     
-     
+ 
       filteredData= mydata.filter((item)=> item.month === selectedMonth )
-      
-     
 
        return (
        <>
